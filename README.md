@@ -93,4 +93,19 @@ While the Singleton pattern ensures a single instance, it does not inherently pr
 
 #### Reflection Publisher-2
 
+##### 1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+Separating "Service" and "Repository" from the Model aligns with the Single Responsibility Principle (SRP), ensuring each component serves a distinct purpose. The Repository manages data access and persistence, abstracting database interactions, while the Service layer handles business logic, keeping it independent of data storage. This approach improves modularity, testability, and maintainability, as modifications to database structures or business rules do not directly affect the Model, minimizing complexity and reducing potential errors.
+
+
+##### 2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+Relying solely on the Model for both data storage and business logic results in tightly coupled code that is harder to maintain. It increases complexity by making each Model responsible for data access, validation, and business logic, leading to bloated code. Additionally, shared logic such as validation or notifications would be duplicated across models, raising the risk of inconsistencies. Managing dependencies between models also becomes more difficult, making refactoring and testing more challenging. This violates SRP and ultimately limits system scalability.
+
+
+##### 3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+Postman is an essential tool for testing REST APIs by simulating HTTP requests and verifying responses without requiring a frontend. It offers features like Collections to systematically organize API endpoints, Environment Variables to facilitate smooth transitions between development and production settings, and Automated Testing through test scripts to ensure expected API behavior after updates. Additionally, Mock Servers help simulate API responses, enabling integration testing without relying on a live backend. These capabilities make Postman a powerful resource for debugging, testing, and ensuring API reliability in both individual and collaborative development environments.
+
+
 #### Reflection Publisher-3
