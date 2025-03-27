@@ -109,3 +109,17 @@ Postman is an essential tool for testing REST APIs by simulating HTTP requests a
 
 
 #### Reflection Publisher-3
+
+##### 1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+In this tutorial, we implement the Push model of the Observer Pattern. Here, the publisher, BambangShop, actively sends notifications to subscribers through HTTP POST requests, delivering relevant data such as product details and status directly to the subscriber’s URL. This approach ensures real-time updates without requiring the subscribers to request information actively.
+
+
+##### 2 . What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+If we were to adopt the Pull model, subscribers would need to actively request data from the publisher instead of passively receiving notifications. This approach provides greater control over when updates are retrieved, preventing unnecessary notifications for events that may not be relevant. It also reduces the load on the publisher since data is only requested when needed. However, the Pull model introduces complexity on the subscriber's end, requiring the implementation of polling mechanisms. Additionally, updates are not received instantly but only when subscribers make a request, which may lead to delays. This model is inefficient for real-time scenarios, as subscribers could miss critical changes if they do not check frequently. Given these drawbacks, the Pull model is not well-suited for this use case, where real-time notifications are a priority.
+
+
+##### 3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+Without multi-threading, the notification process would suffer from significant inefficiencies. Each notification would be processed sequentially, causing performance bottlenecks, especially when handling multiple subscribers or experiencing network delays. The main thread would remain occupied while sending notifications, leading to delays in processing other requests and reducing overall responsiveness. Additionally, as the number of subscribers grows, the notification process would take increasingly longer, making the system difficult to scale. By leveraging multi-threading, notifications can be sent concurrently, improving efficiency and ensuring that the system remains responsive even with a growing number of subscribers.
